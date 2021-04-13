@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+/* ------------------------------------------------ Get all companies ----------------------------------------------- */
 export const GET_ALL_COMPANIES = gql`
   query {
     getAllCompanies {
@@ -16,6 +17,7 @@ export interface iGetAllCompanies {
   }[];
 }
 
+/* ------------------------------------------------ Create a company ------------------------------------------------ */
 export const MUTATION_CREATE_COMPANY = gql`
   mutation($name: String!, $tradingName: String!, $cnpj: String!, $address: String!, $chosenBenefits: [String]!) {
     createCompany(
@@ -29,6 +31,7 @@ export const MUTATION_CREATE_COMPANY = gql`
     }
   }
 `;
+
 export interface iCreateCompany {
   createCompany: {
     name: string;
