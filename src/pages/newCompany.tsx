@@ -1,10 +1,16 @@
+// React and NextJS.
 import React, { useCallback, useEffect } from "react";
-import AppBar from "../components/AppBar/AppBar";
+import Head from "next/head";
 
-import { Form, Input, Button, Select, message, Card, Divider, Row, Col, Space } from "antd";
+// ApolloClient and GraphQL.
 import { useMutation } from "@apollo/client";
 import { iCreateCompany, MUTATION_CREATE_COMPANY } from "../graphql/queries/company";
-import Head from "next/head";
+
+// Ant Design.
+import { Form, Input, Button, Select, message, Card, Divider, Row, Col, Space } from "antd";
+
+// Components.
+import AppBar from "../components/AppBar/AppBar";
 
 const benefits = [
   {
@@ -24,19 +30,24 @@ const benefits = [
 export default function addCompany() {
   const [form] = Form.useForm();
   const [createCompany, { data, error }] = useMutation<iCreateCompany>(MUTATION_CREATE_COMPANY);
+
+  // Handlers.
   const handleSubmit = useCallback((values) => {
     createCompany({ variables: values });
   }, []);
 
+  // UseEffects.
   useEffect(() => {
     if (!data?.createCompany.name) return;
     message.success(`${data.createCompany.name} added successfully!`);
     form.resetFields();
   }, [data]);
+
   useEffect(() => {
     if (!error) return;
     message.error("Unexpected error. Please, try again later...");
   }, [error]);
+
   return (
     <>
       <Head>
