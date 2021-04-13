@@ -1,34 +1,43 @@
-import { GetServerSideProps } from "next";
+// React and NextJS.
 import React, { useCallback, useEffect } from "react";
+import Head from "next/head";
+import { GetServerSideProps } from "next";
+
+// ApolloClient and GraphQL.
 import { APOLLO_STATE_PROP_NAME, initializeApollo } from "../../lib/apolloClient";
-import AppBar from "../components/AppBar/AppBar";
-import { GET_ALL_COMPANIES, iGetAllCompanies } from "../graphql/queries/company";
-import { Form, Input, Button, Select, message, Space, Row, Col, Card, Divider } from "antd";
 import { MutationUpdaterFn, useMutation, useQuery } from "@apollo/client";
+import { GET_ALL_COMPANIES, iGetAllCompanies } from "../graphql/queries/company";
 import {
   GET_EMPLOYEES_BY_COMPANY,
-  iCreateEmployee,
   iGetEmployeesByCompany,
   MUTATION_CREATE_EMPLOYEE,
+  iCreateEmployee,
 } from "../graphql/queries/employee";
-import Head from "next/head";
+
+// Ant Design.
+import { Form, Input, Button, Select, message, Space, Row, Col, Card, Divider } from "antd";
+
+// Components.
+import AppBar from "../components/AppBar/AppBar";
 
 /** After a Mutation, the cache must be updated to include the new entry.
  *
  * @param cache ApolloClient cache
  * @param result Result of the mutation
- * @override ApolloCache
  */
 const handleUpdate: MutationUpdaterFn<iCreateEmployee> = (cache, { data }) => {
   try {
     // Gets the new entry.
     const { createEmployee: newEmployee } = data as iCreateEmployee;
+
     // Gets the old cache.
     const allEmployees = cache.readQuery<iGetEmployeesByCompany>({
       query: GET_EMPLOYEES_BY_COMPANY,
       variables: { companyID: newEmployee.companyID },
     });
     if (!allEmployees) return; // Haven't been cached yet.
+
+    // Saves the new cache.
     const newCache = [...allEmployees.getEmployeesByCompany, newEmployee];
     cache.writeQuery({
       query: GET_EMPLOYEES_BY_COMPANY,
@@ -49,20 +58,29 @@ export default function AddEmployee() {
     update: handleUpdate,
   });
 
+  // Handlers.
   const handleSubmit = useCallback((values) => {
     createEmployee({
       variables: values,
     });
   }, []);
+
+  // UseEffects.
   useEffect(() => {
     if (!data?.createEmployee.firstName) return;
     message.success(`${data.createEmployee.firstName} ${data.createEmployee.lastName} added successfully!`);
     form.resetFields();
   }, [data]);
+
   useEffect(() => {
-    if (!error) return;
-    message.error("Unexpected error. Please, try again later...");
-  }, [error]);
+    if (error_allCompanies) {
+      message.error("Couldn't load the companies list. Please try again later...");
+    }
+    if (error) {
+      message.error("Unexpected error. Please, try again later...");
+    }
+  }, [error_allCompanies, error]);
+
   return (
     <>
       <Head>
