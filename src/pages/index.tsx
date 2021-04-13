@@ -6,7 +6,7 @@ import { GET_ALL_COMPANIES, iGetAllCompanies } from "../graphql/queries/company"
 import { GET_EMPLOYEES_BY_COMPANY, iEmployee, iGetEmployeesByCompany } from "../graphql/queries/employee";
 import EmployeeTable from "../components/EmployeeTable/EmployeeTable";
 import { Select, Typography } from "antd";
-const { Option } = Select;
+import AppBar from "../components/AppBar/AppBar";
 const { Title } = Typography;
 
 export default function Home() {
@@ -30,15 +30,22 @@ export default function Home() {
 
   return (
     <div>
+      <AppBar />
       <Title>Search Employees</Title>
-      <Select defaultValue={data_allCompanies?.getAllCompanies[0].id} onChange={handleSelect}>
-        {data_allCompanies &&
-          data_allCompanies.getAllCompanies.map((company, index) => (
-            <Option key={index} value={company.id}>
-              {company.name}
-            </Option>
-          ))}
-      </Select>
+      <Select
+        style={{ width: 200 }}
+        showSearch
+        filterOption={(input, option) => {
+          const label = option?.label as string;
+          return label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+        }}
+        onChange={handleSelect}
+        options={data_allCompanies?.getAllCompanies.map((company) => ({
+          label: company.name,
+          value: company.id,
+        }))}
+      />
+
       <EmployeeTable data={employees} />
     </div>
   );

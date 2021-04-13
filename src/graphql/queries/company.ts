@@ -15,3 +15,22 @@ export interface iGetAllCompanies {
     name: string;
   }[];
 }
+
+export const MUTATION_CREATE_COMPANY = gql`
+  mutation($name: String!, $tradingName: String!, $cnpj: String!, $address: String!, $chosenBenefits: [String]!) {
+    createCompany(
+      name: $name
+      tradingName: $tradingName
+      cnpj: $cnpj
+      address: $address
+      chosenBenefits: $chosenBenefits
+    ) {
+      name
+    }
+  }
+`;
+export interface iCreateCompany {
+  createCompany: {
+    name: string;
+  };
+}
