@@ -5,9 +5,8 @@ import { APOLLO_STATE_PROP_NAME, initializeApollo } from "../../lib/apolloClient
 import { GET_ALL_COMPANIES, iGetAllCompanies } from "../graphql/queries/company";
 import { GET_EMPLOYEES_BY_COMPANY, iEmployee, iGetEmployeesByCompany } from "../graphql/queries/employee";
 import EmployeeTable from "../components/EmployeeTable/EmployeeTable";
-import { Select, Card, Typography, Divider } from "antd";
+import { Select, Card, Divider, Space, Row, Col } from "antd";
 import AppBar from "../components/AppBar/AppBar";
-const { Title } = Typography;
 
 export default function Home() {
   const { data: data_allCompanies, error: error_allCompanies } = useQuery<iGetAllCompanies>(GET_ALL_COMPANIES);
@@ -29,27 +28,31 @@ export default function Home() {
   }, [data_employees]);
 
   return (
-    <div>
+    <Space size={20} direction="vertical" style={{ width: "100vw" }}>
       <AppBar />
-      <Card>
-        <Select
-          placeholder="Select the Company"
-          style={{ width: 200 }}
-          showSearch
-          filterOption={(input, option) => {
-            const label = option?.label as string;
-            return label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
-          }}
-          onChange={handleSelect}
-          options={data_allCompanies?.getAllCompanies.map((company) => ({
-            label: company.name,
-            value: company.id,
-          }))}
-        />
-        <Divider />
-        <EmployeeTable data={employees} />
-      </Card>
-    </div>
+      <Row justify="center">
+        <Col xs={24} sm={24} md={24} lg={18} xl={18}>
+          <Card>
+            <Select
+              placeholder="Select the Company"
+              style={{ width: 200 }}
+              showSearch
+              filterOption={(input, option) => {
+                const label = option?.label as string;
+                return label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+              }}
+              onChange={handleSelect}
+              options={data_allCompanies?.getAllCompanies.map((company) => ({
+                label: company.name,
+                value: company.id,
+              }))}
+            />
+            <Divider />
+            <EmployeeTable data={employees} />
+          </Card>
+        </Col>
+      </Row>
+    </Space>
   );
 }
 
