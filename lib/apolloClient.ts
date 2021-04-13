@@ -18,7 +18,8 @@ function createApolloClient(headers = {}) {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
-      uri: "http://localhost:3000/api/graphql", // Server URL (must be absolute)
+      // Server URL (must be absolute)
+      uri: `${process.env.NEXT_PUBLIC_APP_URI}${process.env.NEXT_PUBLIC_GRAPHQL_SERVER_PATH}`,
       credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
       headers,
     }),

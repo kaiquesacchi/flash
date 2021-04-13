@@ -28,4 +28,4 @@ export const config = {
 };
 
 // Points the Apollo server to the endpoint.
-export default apolloServer.createHandler({ path: "/api/graphql" });
+export default apolloServer.createHandler({ path: process.env.NEXT_PUBLIC_GRAPHQL_SERVER_PATH });
