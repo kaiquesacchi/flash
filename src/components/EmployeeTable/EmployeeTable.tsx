@@ -1,4 +1,7 @@
+// React and NextJS.
 import React from "react";
+
+// Ant Design.
 import { Table } from "antd";
 
 const columns = [
