@@ -1,3 +1,23 @@
+# Flash
+
+> Developed using NextJS, Apollo Server/Client, Mongoose and Ant Design.
+
+## Features
+
+This website has 3 main pages:
+
+### Search Employees
+
+![Search Employees](./gifs/SearchEmployees.gif)
+
+### New Company
+
+![New Company](./images/NewCompany.png)
+
+### New Employee
+
+![New Employee](./images/NewEmployee.png)
+
 ## Getting Started
 
 First of all, be sure to install Node, MongoDB and the project requirements (with `npm install`)
