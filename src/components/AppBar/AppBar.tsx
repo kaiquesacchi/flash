@@ -20,10 +20,10 @@ export default function AppBar() {
       <Menu.Item key="/" icon={<SearchOutlined />}>
         Search Employees
       </Menu.Item>
-      <Menu.Item key="/addCompany" icon={<HomeOutlined />}>
+      <Menu.Item key="/newCompany" icon={<HomeOutlined />}>
         New Company
       </Menu.Item>
-      <Menu.Item key="/addEmployee" icon={<UserOutlined />}>
+      <Menu.Item key="/newEmployee" icon={<UserOutlined />}>
         New Employee
       </Menu.Item>
     </Menu>
