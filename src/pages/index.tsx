@@ -5,7 +5,7 @@ import { APOLLO_STATE_PROP_NAME, initializeApollo } from "../../lib/apolloClient
 import { GET_ALL_COMPANIES, iGetAllCompanies } from "../graphql/queries/company";
 import { GET_EMPLOYEES_BY_COMPANY, iEmployee, iGetEmployeesByCompany } from "../graphql/queries/employee";
 import EmployeeTable from "../components/EmployeeTable/EmployeeTable";
-import { Select, Typography } from "antd";
+import { Select, Card, Typography, Divider } from "antd";
 import AppBar from "../components/AppBar/AppBar";
 const { Title } = Typography;
 
@@ -31,22 +31,24 @@ export default function Home() {
   return (
     <div>
       <AppBar />
-      <Title>Search Employees</Title>
-      <Select
-        style={{ width: 200 }}
-        showSearch
-        filterOption={(input, option) => {
-          const label = option?.label as string;
-          return label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
-        }}
-        onChange={handleSelect}
-        options={data_allCompanies?.getAllCompanies.map((company) => ({
-          label: company.name,
-          value: company.id,
-        }))}
-      />
-
-      <EmployeeTable data={employees} />
+      <Card>
+        <Select
+          placeholder="Select the Company"
+          style={{ width: 200 }}
+          showSearch
+          filterOption={(input, option) => {
+            const label = option?.label as string;
+            return label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+          }}
+          onChange={handleSelect}
+          options={data_allCompanies?.getAllCompanies.map((company) => ({
+            label: company.name,
+            value: company.id,
+          }))}
+        />
+        <Divider />
+        <EmployeeTable data={employees} />
+      </Card>
     </div>
   );
 }
