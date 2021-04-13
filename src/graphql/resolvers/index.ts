@@ -1,5 +1,11 @@
+import { getCompany, getAllCompanies, createCompany } from "./company";
+
 export const resolvers = {
   Query: {
-    helloWorld: () => "Hello World!",
+    getCompany,
+    getAllCompanies,
+  },
+  Mutation: {
+    createCompany,
   },
 };
