@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server-micro";
-
 import { typeDefs } from "../../graphql/schemas";
 import { resolvers } from "../../graphql/resolvers";
+
 import dbConnect from "../../../lib/mongoose";
 
 export interface iApolloContext {
@@ -12,6 +12,7 @@ const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   context: async () => {
+    // Provides a database connection to all resolvers.
     const db = await dbConnect();
     return {
       db,
