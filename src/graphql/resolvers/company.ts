@@ -11,7 +11,6 @@ export function getCompany(_parent: any, args: any, _context: iApolloContext) {
 
 export async function getAllCompanies(_parent: any, _args: any, context: iApolloContext) {
   const allCompanies = await companies.find();
-  console.log(allCompanies);
   return allCompanies;
 }
 
