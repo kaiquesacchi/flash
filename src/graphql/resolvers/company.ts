@@ -1,5 +1,5 @@
-import companies from "../../models/companies";
 import { iApolloContext } from "../../pages/api/graphql";
+import companies from "../../models/companies";
 
 /* --------------------------------------------- Register a new company --------------------------------------------- */
 interface iCreateCompany {
@@ -16,7 +16,6 @@ export function createCompany(_parent: any, args: iCreateCompany, _context: iApo
 }
 
 /* ------------------------------------------ Get all companies registered ------------------------------------------ */
-
 export async function getAllCompanies(_parent: any, _args: any, _context: iApolloContext) {
   const allCompanies = await companies.find();
   return allCompanies;

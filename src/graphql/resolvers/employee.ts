@@ -1,5 +1,5 @@
-import employees from "../../models/employees";
 import { iApolloContext } from "../../pages/api/graphql";
+import employees from "../../models/employees";
 
 /* ----------------------------------------------- Create new employee ---------------------------------------------- */
 interface iCreateEmployee {
@@ -20,6 +20,7 @@ export function createEmployee(_parent: any, args: iCreateEmployee, _context: iA
 interface iGetEmployeesByCompany {
   companyID: string;
 }
+
 export async function getEmployeesByCompany(
   _parent: any,
   { companyID }: iGetEmployeesByCompany,
