@@ -1,11 +1,13 @@
-import { getCompany, getAllCompanies, createCompany } from "./company";
+import { createCompany, getAllCompanies } from "./company";
+import { createEmployee, getEmployeesByCompany } from "./employee";
 
 export const resolvers = {
   Query: {
-    getCompany,
     getAllCompanies,
+    getEmployeesByCompany,
   },
   Mutation: {
     createCompany,
+    createEmployee,
   },
 };

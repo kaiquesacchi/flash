@@ -15,13 +15,12 @@ export const typeDefs = gql`
     lastName: String!
     cpf: String!
     email: String!
-    employer: Company!
   }
 
   type Query {
     helloWorld: String!
-    getCompany(id: String, name: String, tradingName: String, cnpj: String): Company
     getAllCompanies: [Company]
+    getEmployeesByCompany(companyID: String!): [Employee]
   }
 
   type Mutation {
@@ -32,5 +31,6 @@ export const typeDefs = gql`
       address: String!
       chosenBenefits: [String]!
     ): Company
+    createEmployee(firstName: String!, lastName: String!, cpf: String!, email: String!, companyID: String!): Employee
   }
 `;
