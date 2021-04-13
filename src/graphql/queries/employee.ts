@@ -21,3 +21,19 @@ export interface iEmployee {
   cpf: string;
   email: string;
 }
+
+export const MUTATION_CREATE_EMPLOYEE = gql`
+  mutation($firstName: String!, $lastName: String!, $cpf: String!, $email: String!, $companyID: String!) {
+    createEmployee(firstName: $firstName, lastName: $lastName, cpf: $cpf, email: $email, companyID: $companyID) {
+      firstName
+      lastName
+    }
+  }
+`;
+
+export interface iCreateEmployee {
+  createEmployee: {
+    firstName: string;
+    lastName: string;
+  };
+}
