@@ -27,6 +27,9 @@ export const MUTATION_CREATE_EMPLOYEE = gql`
     createEmployee(firstName: $firstName, lastName: $lastName, cpf: $cpf, email: $email, companyID: $companyID) {
       firstName
       lastName
+      cpf
+      email
+      companyID
     }
   }
 `;
@@ -35,5 +38,8 @@ export interface iCreateEmployee {
   createEmployee: {
     firstName: string;
     lastName: string;
+    cpf: string;
+    email: string;
+    companyID: string;
   };
 }

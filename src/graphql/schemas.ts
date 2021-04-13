@@ -15,6 +15,7 @@ export const typeDefs = gql`
     lastName: String!
     cpf: String!
     email: String!
+    companyID: String!
   }
 
   type Query {
