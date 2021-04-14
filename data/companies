@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "6076239559af20ba962bc796"
+  },
+  "chosenBenefits": [
+    "vr",
+    "vt"
+  ],
+  "name": "International Business Machines Corporation",
+  "tradingName": "IBM",
+  "cnpj": "33.372.251/0126-77",
+  "address": "Rua Tutoia, 1157",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607623f159af20ba962bc797"
+  },
+  "chosenBenefits": [
+    "vr",
+    "vt",
+    "gymPass"
+  ],
+  "name": "Flash App Flash Tecnologia e Pagamentos Ltda.",
+  "tradingName": "Flash App",
+  "cnpj": "32.223.020/0001-18",
+  "address": "Eugenio de Medeiros, 242",
+  "__v": 0
+}]

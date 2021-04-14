@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "607624d359af20ba962bc798"
+  },
+  "firstName": "Jamison",
+  "lastName": "Pilmore",
+  "cpf": "15.426.842-6",
+  "email": "jpilmore0@wikispaces.com",
+  "companyID": {
+    "$oid": "6076239559af20ba962bc796"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607624f059af20ba962bc799"
+  },
+  "firstName": "Janis",
+  "lastName": "McKomb",
+  "cpf": "54.851.123-5",
+  "email": "jmckomb1@eepurl.com",
+  "companyID": {
+    "$oid": "6076239559af20ba962bc796"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076250959af20ba962bc79a"
+  },
+  "firstName": "Danyelle",
+  "lastName": "Kasman",
+  "cpf": "99.154.321-5",
+  "email": "dkasman2@loc.gov",
+  "companyID": {
+    "$oid": "6076239559af20ba962bc796"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076252259af20ba962bc79b"
+  },
+  "firstName": "Paton",
+  "lastName": "Czapla",
+  "cpf": "11.456.159-8",
+  "email": "pczapla3@i2i.jp",
+  "companyID": {
+    "$oid": "6076239559af20ba962bc796"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076253759af20ba962bc79c"
+  },
+  "firstName": "Ajay",
+  "lastName": "Duplain",
+  "cpf": "51.513.517-9",
+  "email": "aduplain4@home.pl",
+  "companyID": {
+    "$oid": "6076239559af20ba962bc796"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076255e59af20ba962bc79d"
+  },
+  "firstName": "Clarine",
+  "lastName": "Hedling",
+  "cpf": "22.516.456-9",
+  "email": "chedling5@patch.com",
+  "companyID": {
+    "$oid": "607623f159af20ba962bc797"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076257359af20ba962bc79e"
+  },
+  "firstName": "Dugald",
+  "lastName": "Danielsen",
+  "cpf": "55.789.456-8",
+  "email": "ddanielsen6@theatlantic.com",
+  "companyID": {
+    "$oid": "607623f159af20ba962bc797"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076258a59af20ba962bc79f"
+  },
+  "firstName": "Trudey",
+  "lastName": "Hughes",
+  "cpf": "12.543.999-8",
+  "email": "thughes7@is.gd",
+  "companyID": {
+    "$oid": "607623f159af20ba962bc797"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607625a359af20ba962bc7a0"
+  },
+  "firstName": "Gerhardine",
+  "lastName": "Eardley",
+  "cpf": "12.888.554-6",
+  "email": "geardley8@bloglines.com",
+  "companyID": {
+    "$oid": "607623f159af20ba962bc797"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607625b859af20ba962bc7a1"
+  },
+  "firstName": "Harlin",
+  "lastName": "Gladstone",
+  "cpf": "87.458.688-6",
+  "email": "hgladstone9@theguardian.com",
+  "companyID": {
+    "$oid": "607623f159af20ba962bc797"
+  },
+  "__v": 0
+}]
