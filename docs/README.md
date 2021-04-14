@@ -30,7 +30,7 @@ NEXT_PUBLIC_APP_URI="http://localhost:3000"
 NEXT_PUBLIC_GRAPHQL_SERVER_PATH="/api/graphql"
 
 # Change the value accordingly to your MongoDB database URI.
-MONGODB_URI="<your_MongoDB_URI>"
+MONGODB_URI="<your_MongoDB_URI>/flash"
 ```
 
 To run the project in development mode:
@@ -38,6 +38,25 @@ To run the project in development mode:
 ```shell
 npm run dev
 ```
+
+To build and run in production mode:
+
+```shell
+npm run build
+npm start
+```
+
+The server will start on `http://localhost:3000`
+
+### Importing the database collections.
+
+This process may be done using the MongoDB Compass tool.
+
+After opening Compass, access your MongoDB server using the MongoDB URI and create a Database called `flash`.
+
+Create two collections, `companies` and `employees`, and import the their respective JSON data, from the `/data` folder.
+
+![Importing database collections](./images/ImportingDatabase.jpeg)
 
 ## Project's Structure
 
